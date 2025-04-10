@@ -94,13 +94,13 @@ sonad=[
     {'est': 'auto', 'rus': 'машина', 'eng': 'car'},
     {'est': 'päike', 'rus': 'солнце', 'eng': 'sun'}
 ]
-
+#1
 def tolkija(sonad, allikas, siht, sona):
     for kirje in sonad:
         if kirje[allikas] == sona.lower():
             return kirje[siht]
     return "Слово не найдено!"
-
+#2
 def lisa_sona(sonad):
     print("Добавляем новое слово в словарь!")
     uus_est = input("Введите слово на эстонском: ").strip().lower()
@@ -109,3 +109,11 @@ def lisa_sona(sonad):
     
     sonad.append({'est': uus_est, 'rus': uus_rus, 'eng': uus_eng})
     print("Новое слово добавлено!")
+#4
+def vaata_sona(sonad):
+    print("Мой словарь:")
+    number = 1
+    for kirje in sonad:
+        print(str(number) + ". Eesti: " + kirje['est'] + " Vene: " + kirje['rus'] + " Inglise: " + kirje['eng'])
+        number = number + 1
+    print("Конец словаря")

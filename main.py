@@ -110,28 +110,28 @@ while True:
         valik=int(input("Sisesta oma valik: "))
         if valik==1:
             while True:
-                sona=input("Введите слово: ").lower()
+                sona=input("Введите слово: ").lower().strip()
                 if sona.isalpha():break
                 else:
                     print("Слово должно состоять только из букв!")
             while True:
-                allikas=input("введите с какого языка (est, eng, rus): ")
+                allikas=input("введите с какого языка (est, eng, rus): ").strip()
                 if allikas=="est" or allikas=="rus" or allikas=="eng": break
                 else: 
                     print("Ответ должен быть только 'est' või 'eng' või 'rus'!")
             while True:
-                siht=input("введите на какой язык (est, eng, rus): ")
+                siht=input("введите на какой язык (est, eng, rus): ").strip()
                 if siht=="rus" or siht=="eng" or siht=="est": break
                 else: 
                     print("Ответ должен быть только 'est' või 'eng' või 'rus'!")
             tulemus=tolkija(sonad, allikas, siht, sona)
             print(tulemus)
         elif valik==2:
-            print()
+            lisa_sona(sonad)
         elif valik==3:
             print()
         elif valik==4:
-            print()
+            print(vaata_sona(sonad))
         elif valik==5:
             print()
         elif valik==6:
