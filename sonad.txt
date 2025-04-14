@@ -1,0 +1,6 @@
+﻿{'est': 'koer', 'rus': 'собака', 'eng': 'dog'}
+{'est': 'kass', 'rus': 'кошка', 'eng': 'cat'}
+{'est': 'maja', 'rus': 'дом', 'eng': 'house'}
+{'est': 'auto', 'rus': 'машина', 'eng': 'car'}
+{'est': 'päike', 'rus': 'солнце', 'eng': 'sun'}
+{'est': 'lille', 'rus': 'кгы', 'eng': 'flower'}

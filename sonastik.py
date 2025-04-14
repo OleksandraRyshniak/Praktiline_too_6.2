@@ -1,41 +1,59 @@
-import pyttsx3
+import json
 import random
 
-# Мой список словарей (определяю только один раз)
-sonad = [
-    {'est': 'koer', 'rus': 'собака', 'eng': 'dog'},
-    {'est': 'kass', 'rus': 'кошка', 'eng': 'cat'},
-    {'est': 'maja', 'rus': 'дом', 'eng': 'house'},
-    {'est': 'auto', 'rus': 'машина', 'eng': 'car'},
-    {'est': 'päike', 'rus': 'солнце', 'eng': 'sun'}
-]
+def loe(fail:str)->dict:
+    f=open(fail,'r',  encoding="utf-8-sig")
+    sonad=[]
+    for rida in f:
+        sonad.append(rida.strip())
+    f.close()
+    return sonad
+
+# sonad = [
+#     {'est': 'koer', 'rus': 'собака', 'eng': 'dog'},
+#     {'est': 'kass', 'rus': 'кошка', 'eng': 'cat'},
+#     {'est': 'maja', 'rus': 'дом', 'eng': 'house'},
+#     {'est': 'auto', 'rus': 'машина', 'eng': 'car'},
+#     {'est': 'päike', 'rus': 'солнце', 'eng': 'sun'}
+# ]
+# def kirjuta_failisse(fail:str,d:dict):
+#     f=open(fail, 'w', encoding="utf-8-sig")
+#     for line in d:
+#         f.write(str(line)+'\n')
+#     f.close()
+# kirjuta_failisse("sonad.txt",sonad)
+
+
 #1
-def tolkija(sonad, allikas, siht, sona):
+def tolkija(fail:str, sona, allikas, siht)->any:
     """Sõnade tõlkimine
     Funktsioon tõlgib sõna, mille kasutaja sisestab.
     """
+    with open(fail, 'r', encoding="utf-8-sig") as f:
+        sonad = []
+        for rida in f:
+            sonad.append(eval(rida.strip()))
     for kirje in sonad:
-        if kirje[allikas] == sona.lower():
-            print("Tõlkimine:", kirje[siht])
+        if kirje[allikas].lower() == sona.lower():
             return kirje[siht]
-    return "Sõna ei leitud!"
 
 #2
-def lisa_sona(sonad):
+def lisa_sona(fail:str):
     """Lisa sõna
      Funktsioon lisab kasutaja poolt sisestatud sõnad.
-    :param list sonad
+    :param list fail
     """
     est_sona = input("Sõna eesti keeles: ").strip().lower()
     rus_sona = input("Sõna vene keeles: ").strip().lower()
     eng_sona = input("Sõna on inglise keeles: ").strip().lower()
 
     uus_sona = {'est': est_sona, 'rus': rus_sona, 'eng': eng_sona}
-    sonad.append(uus_sona)
+    with open(fail, 'a', encoding="utf-8-sig") as f :
+        f.write(str(uus_sona)+'\n')
     print("Sõna on lisatud!")
 
 #3
-def muutmine_sona(sonad):
+def muutmine_sona(fail:str):
     """Sõna muutmine
     Funktsioon muudab sõna (kasutaja valib, mida muuta).
     :param list sonad: sõnade nimekiri
@@ -70,20 +88,19 @@ def muutmine_sona(sonad):
 
 
 #4
-def vaata_sona(sonad):
+def vaata_sona(fail:str):
     """Sõnavara vaatamine ja kuulamine
     Funktsioon näitab ja häälestab kogu sõnastiku
     :param list sonad
     """
     print("Sõnastik:")
     number = 1
-    mootor = pyttsx3.init()
+    with open(fail, 'a', encoding="utf-8-sig") as f :
+        sonad=[json.loads(rida.strip()) for rida in f]
     for kirje in sonad:
         text = str(number) + ". Eesti: " + kirje['est'] + " Vene: " + kirje['rus'] + " Inglise: " + kirje['eng']
         print(text)
-        mootor.say(text)
         number = number + 1
-    mootor.runAndWait()
     print(" ")
 
 #5

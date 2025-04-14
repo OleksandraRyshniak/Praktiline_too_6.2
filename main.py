@@ -7,7 +7,6 @@ sonad=[
     {'est': 'auto', 'rus': 'машина', 'eng': 'car'},
     {'est': 'päike', 'rus': 'солнце', 'eng': 'sun'}
 ] 
-
 print(" ----- MENU -----\n",
       "1. Sõna tõlkimine;\n",
       "2. Sõnade lisamine;\n",
@@ -34,16 +33,21 @@ while True:
                 if siht=="rus" or siht=="eng" or siht=="est": break
                 else: 
                     print("Sisesta, millise keelelt 'est' või 'eng' või 'rus'!")
-            tulemus=tolkija(sonad, allikas, siht, sona)
+            tulemus=tolkija("sonad.txt", sona, allikas, siht)
             print(tulemus)
+            break
         elif valik==2:
-            lisa_sona(sonad)
+            lisa_sona("sonad.txt")
+            break
         elif valik==3:
             muutmine_sona(sonad)
+            break
         elif valik==4:
-           vaata_sona(sonad)
+           vaata_sona("sonad.txt")
+           break
         elif valik==5:
             test(sonad)
+            break
         elif valik==6:
             break
         else:
