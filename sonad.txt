@@ -3,4 +3,5 @@
 {'est': 'maja', 'rus': 'дом', 'eng': 'house'}
 {'est': 'auto', 'rus': 'машина', 'eng': 'car'}
 {'est': 'päike', 'rus': 'солнце', 'eng': 'sun'}
-{'est': 'lille', 'rus': 'кгы', 'eng': 'flower'}
+{'est': 'lille', 'rus': 'цветок', 'eng': 'flower'}
+{'est': 'vesi', 'rus': 'вода', 'eng': 'water'}

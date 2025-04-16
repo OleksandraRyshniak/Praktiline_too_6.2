@@ -1,12 +1,13 @@
 from sonastik import *
 
-sonad=[
-    {'est': 'koer', 'rus': 'собака', 'eng': 'dog' },
-    {'est': 'kass', 'rus': 'кошка', 'eng': 'cat'},
-    {'est': 'maja', 'rus': 'дом', 'eng': 'house'},
-    {'est': 'auto', 'rus': 'машина', 'eng': 'car'},
-    {'est': 'päike', 'rus': 'солнце', 'eng': 'sun'}
-] 
+# sonad=[
+#     {'est': 'koer', 'rus': 'собака', 'eng': 'dog' },
+#     {'est': 'kass', 'rus': 'кошка', 'eng': 'cat'},
+#     {'est': 'maja', 'rus': 'дом', 'eng': 'house'},
+#     {'est': 'auto', 'rus': 'машина', 'eng': 'car'},
+#     {'est': 'päike', 'rus': 'солнце', 'eng': 'sun'}
+# ] 
+
 print(" ----- MENU -----\n",
       "1. Sõna tõlkimine;\n",
       "2. Sõnade lisamine;\n",
@@ -23,30 +24,20 @@ while True:
                 if sona.isalpha():break
                 else:
                     print("Sõna peab koosnema ainult tähtedest!")
-            while True:
-                allikas=input("Sisesta, millise keelelt (est, eng, rus): ").strip().lower()
-                if allikas=="est" or allikas=="rus" or allikas=="eng": break
-                else: 
-                    print("Vastus peab olema ainult 'est', 'eng' või 'rus'!")
-            while True:
-                siht=input("Sisesta, millisele keelele (est, eng, rus): ").strip().lower()
-                if siht=="rus" or siht=="eng" or siht=="est": break
-                else: 
-                    print("Sisesta, millise keelelt 'est' või 'eng' või 'rus'!")
-            tulemus=tolkija("sonad.txt", sona, allikas, siht)
+            tulemus=tolkija("sonad.txt", sona)
             print(tulemus)
             break
         elif valik==2:
             lisa_sona("sonad.txt")
             break
         elif valik==3:
-            muutmine_sona(sonad)
+            muutmine_sona("sonad.txt")
             break
         elif valik==4:
            vaata_sona("sonad.txt")
            break
         elif valik==5:
-            test(sonad)
+            test("sonad.txt")
             break
         elif valik==6:
             break
