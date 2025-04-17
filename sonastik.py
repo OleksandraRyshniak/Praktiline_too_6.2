@@ -1,14 +1,5 @@
 
-import json
 import random
-
-def loe(fail:str)->dict:
-    f=open(fail,'r',  encoding="utf-8-sig")
-    sonad=[]
-    for rida in f:
-        sonad.append(rida.strip())
-    f.close()
-    return sonad
 
 # sonad = [
 #     {'est': 'koer', 'rus': 'собака', 'eng': 'dog'},
